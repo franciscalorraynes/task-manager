@@ -8,7 +8,7 @@ Sistema completo de gerenciamento de tarefas, desenvolvido por **Lorrayne** como
 
 | Tela de Login | Tela de Registro | Tela de Tarefas |
 |---------------|------------------|------------------|
-| ![Login](task-manager-frontend/public/screenshots/login.png) | ![Register](task-manager-frontend/public/screenshots/register.png) | ![Tasks](task-manager-frontend/public/screenshots/tasks.png) |
+| ![Login](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/login.png?v=1) | ![Register](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/register.png?v=1) | ![Tasks](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/tasks.png?v=1) |
 
 
 > As imagens acima devem estar na pasta `public/screenshots/` com os nomes correspondentes, como `login.png`, `register.png`, e `tasks.png`.
