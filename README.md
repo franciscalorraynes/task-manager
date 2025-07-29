@@ -1,189 +1,159 @@
-# Task Manager - Projeto Final Sistemas Distribuídos
+# Task Manager – Projeto Final de Sistemas Distribuídos
 
-## 📋 Descrição do Projeto
+Sistema completo de gerenciamento de tarefas, desenvolvido por **Lorrayne** como projeto final da disciplina **Sistemas Distribuídos**. O sistema implementa arquitetura de **três camadas** com comunicação via **APIs REST**, autenticação via **JWT**, acesso **multiplataforma (Web e Android)**, e deploy com **DNS personalizado** usando AWS.
 
-Sistema completo de gerenciamento de tarefas desenvolvido para atender aos requisitos da disciplina de Sistemas Distribuídos, implementando arquitetura de três camadas com comunicação via APIs REST.
+---
 
-## 🏗️ Arquitetura do Sistema
+## Telas do Sistema
 
-### Camada de Apresentação
-- **Frontend Web**: React.js com Vite e Tailwind CSS
-- **Aplicativo Android**: Kotlin nativo com Material Design
+| Tela de Login | Tela de Registro | Tela de Tarefas |
+|---------------|------------------|------------------|
+| ![Login](/task-manager-frontend/public/screenshots/login.png) | ![Register](/task-manager-frontend/public/screenshots/register.png) | ![Tasks](/task-manager-frontend/public/screenshots/tasks.png) |
 
-### Camada de Negócios  
-- **API REST**: Flask com autenticação JWT
-- **Endpoints**: CRUD completo para usuários e tarefas
-- **Autenticação**: Sistema de login/registro com tokens JWT
+> As imagens acima devem estar na pasta `public/screenshots/` com os nomes correspondentes, como `login.png`, `register.png`, e `tasks.png`.
 
-### Camada de Dados
-- **Banco de Dados**: SQLite (adequado para projeto acadêmico)
-- **Modelos**: User e Task com relacionamentos
+## Arquitetura
 
-## ✅ Requisitos Atendidos
-
-- ✅ **Arquitetura de três camadas** (apresentação, negócios e dados)
-- ✅ **Comunicação entre componentes** utilizando APIs REST
-- ✅ **Acesso via aplicativo móvel** (Android)  
-- ✅ **Autenticação de usuário** e autorização de chamadas à API
-- ✅ **Configuração de DNS** (instruções incluídas)
-
-## 📁 Estrutura do Projeto
+O sistema segue uma **arquitetura de três camadas**:
 
 ```
-task-manager-projeto-completo/
-├── task-manager-api/           # Backend Flask
-│   ├── src/
-│   │   ├── main.py            # Aplicação principal
-│   │   ├── models/            # Modelos de dados
-│   │   ├── routes/            # Rotas da API
-│   │   ├── utils/             # Utilitários (JWT, etc)
-│   │   └── database/          # Configuração do banco
-│   └── requirements.txt       # Dependências Python
-├── task-manager-frontend/      # Frontend React
-│   ├── src/
-│   │   ├── components/        # Componentes React
-│   │   ├── contexts/          # Context API
-│   │   ├── services/          # Serviços de API
-│   │   └── App.jsx           # Componente principal
-│   ├── package.json          # Dependências Node.js
-│   └── index.html            # HTML principal
-├── task-manager-android/       # Aplicativo Android
-│   ├── app/
-│   │   ├── src/main/java/    # Código Kotlin
-│   │   ├── src/main/res/     # Recursos Android
-│   │   └── build.gradle      # Configuração Android
-│   └── README.md             # Documentação Android
-├── project_plan.md            # Plano detalhado do projeto
-└── todo.md                   # Lista de tarefas concluídas
+Apresentação (React + Android)
+         ↓
+Negócios (Flask API + JWT)
+         ↓
+Dados (DynamoDB)
 ```
 
-## 🚀 Como Executar
+- **Frontend Web:** React + Vite + Tailwind  
+- **Aplicativo Android:** PWA
+- **Backend:** AWS Lambda com Flask + JWT + DynamoDB  
+- **Infraestrutura (Deploy):** AWS (Lambda, API Gateway, DynamoDB, Route 53, S3 para frontend)
 
-### 1. Backend (API Flask)
+---
+
+## Como Executar
+
+### Backend - Flask API
 ```bash
 cd task-manager-api
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
-# ou venv\Scripts\activate  # Windows
+# venv\Scripts\activate    # Windows
 pip install -r requirements.txt
 python src/main.py
 ```
-API disponível em: `http://localhost:5000`
+> A API estará disponível em: `http://localhost:5000`
 
-### 2. Frontend (React)
+### Frontend - React
 ```bash
 cd task-manager-frontend
 npm install
 npm run dev
 ```
-Frontend disponível em: `http://localhost:5173`
+> Frontend disponível em: `http://localhost:5173`
 
-### 3. Android (Android Studio)
-1. Abrir o projeto `task-manager-android` no Android Studio
-2. Sincronizar dependências (Gradle)
-3. Executar em emulador ou dispositivo físico
+### Aplicativo PWA (Progressive Web App)
+1. Acesse o frontend (`http://localhost:5173`) via navegador no smartphone  
+2. Toque em “Adicionar à tela inicial” para instalar o PWA  
+3. O app funcionará como uma aplicação nativa, com suporte offline básico e interface responsiva
 
-## 🔧 Configuração de DNS
+---
 
-Para configurar o acesso via DNS personalizado:
+## Estrutura de Diretórios
 
-### Frontend: `SEUNOME.DNS`
-1. Registrar domínio ou usar serviço de DNS dinâmico
-2. Configurar registro A apontando para IP do servidor
-3. Fazer deploy do frontend em servidor web (Apache/Nginx)
+```
+task-manager-projeto-completo/
+├── task-manager-frontend/    # Frontend React
+├── screenshots/              # Imagens das telas (para o README)
+├── project_plan.md           # Documento detalhado do projeto
+└── README.md                 # Este arquivo
+```
 
-### API: `api.SEUNOME`
-1. Configurar subdomínio `api.SEUNOME`
-2. Fazer deploy da API Flask em servidor
-3. Configurar proxy reverso se necessário
+---
 
-### Exemplo de configuração DNS:
+## Funcionalidades de Autenticação
+
+- Registro e login com **JWT**
+- Middleware de verificação de token
+- Proteção de rotas (usuário só acessa suas próprias tarefas)
+
+---
+
+## Funcionalidades Principais
+
+### Web e Android
+
+- Registro e Login de usuários  
+- Criar, visualizar, editar e excluir tarefas  
+- Filtro por status (pendente, em andamento, concluída)  
+- Responsivo e acessível via navegador ou celular  
+
+### Endpoints da API (RESTful)
+
+```http
+POST   /api/auth/register   # Criar conta
+POST   /api/auth/login      # Login
+GET    /api/auth/me         # Ver perfil logado
+
+GET    /api/tasks           # Listar tarefas
+POST   /api/tasks           # Criar tarefa
+GET    /api/tasks/{id}      # Ver tarefa
+PUT    /api/tasks/{id}      # Atualizar
+DELETE /api/tasks/{id}      # Deletar
+```
+
+---
+
+## Configuração de DNS
+
+- SEUNOME.DNS → Frontend (React)  
+- api.SEUNOME → API (Flask via API Gateway)
+
+**Exemplo:**
 ```
 SEUNOME.DNS        A    192.168.1.100
 api.SEUNOME        A    192.168.1.100
 ```
 
-## 🔐 Autenticação e Segurança
+---
 
-- **JWT Tokens**: Autenticação stateless
-- **Expiração**: Tokens válidos por 7 dias
-- **Proteção de rotas**: Middleware de autorização
-- **CORS**: Configurado para desenvolvimento
-- **Validação**: Dados de entrada validados
-
-## 📱 Funcionalidades
-
-### Web e Mobile
-- Login e registro de usuários
-- Dashboard de tarefas
-- Criar, editar e excluir tarefas
-- Filtrar por status (Pendente, Em Andamento, Concluída)
-- Data de vencimento
-- Interface responsiva
-
-### API Endpoints
-```
-POST /api/auth/register    # Registro
-POST /api/auth/login       # Login
-GET  /api/auth/me         # Usuário atual
-GET  /api/tasks           # Listar tarefas
-POST /api/tasks           # Criar tarefa
-GET  /api/tasks/{id}      # Ver tarefa
-PUT  /api/tasks/{id}      # Atualizar tarefa
-DELETE /api/tasks/{id}    # Excluir tarefa
-```
-
-## 🛠️ Tecnologias Utilizadas
-
-### Backend
-- Python 3.11
-- Flask
-- SQLite
-- JWT (PyJWT)
-- Flask-CORS
+## Tecnologias Utilizadas
 
 ### Frontend
-- React 19
-- Vite
-- Tailwind CSS
-- Shadcn/ui
+- React 19 + Vite
+- Tailwind CSS + Shadcn/ui
 - Axios
 
+### Backend
+- Python 3.11 + Flask
+- Flask-JWT-Extended + Flask-CORS
+- DynamoDB
+
 ### Mobile
-- Kotlin
-- Android SDK (API 24+)
-- Material Design 3
-- Retrofit2
-- Coroutines
-
-## 📊 Demonstração
-
-O sistema foi testado e validado com:
-- ✅ Registro e login de usuários
-- ✅ Criação e listagem de tarefas
-- ✅ Autenticação JWT funcionando
-- ✅ Interface responsiva
-- ✅ Comunicação API completa
-
-## 🎯 Objetivos Acadêmicos Alcançados
-
-1. **Arquitetura Distribuída**: Separação clara de responsabilidades
-2. **Comunicação via API**: REST com JSON
-3. **Autenticação Segura**: JWT com middleware
-4. **Interface Multiplataforma**: Web e Android
-5. **Documentação Completa**: Código bem documentado
-
-## 📝 Registro de Software
-
-Este projeto está preparado para registro de programa de computador via UFERSA, incluindo:
-- Código fonte completo
-- Documentação técnica
-- Arquitetura bem definida
-- Funcionalidades inovadoras
-- Aplicação prática
+- Progressive Web App (PWA)
+- Instalação via navegador em dispositivos móveis
+- Responsivo, com suporte a ícone, splash screen e navegação offline
 
 ---
 
-**Desenvolvido para a disciplina de Sistemas Distribuídos**
-*Demonstrando competências em arquitetura de software, APIs REST, autenticação e desenvolvimento multiplataforma.*
+## Documentação Técnica
 
+Veja o arquivo [`project_plan.md`](./project_plan.md) para:
+
+- Conceito detalhado
+- Banco de dados: AWS DynamoDB
+- Infraestrutura: AWS Lambda, API Gateway, S3, Route 53
+- Comunicação: APIs REST
+- Segurança: JWT e validação com AWS IAM
+- Diagrama de arquitetura
+- Descrição das camadas
+- Tecnologias AWS utilizadas
+- Cronograma de desenvolvimento
+
+---
+
+## Desenvolvido Por
+
+**Francisca Lorrayne**  
+Discente de Bacharelado em Tecnologia da Informação – UFERSA  
+Projeto final para a disciplina **Sistemas Distribuídos**
