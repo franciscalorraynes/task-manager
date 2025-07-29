@@ -6,13 +6,13 @@ Sistema completo de gerenciamento de tarefas, desenvolvido como projeto final da
 
 ## Telas do Sistema
 
-| Tela de Login | | Tela de Tarefas |
-|---------------|------------------|------------------|
-| ![Login](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/login.png?v=1) |  | ![Tasks](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/tasks.png?v=1) |
-
-
+| Tela de Login | Tela de Tarefas |
+|---------------|-----------------|
+| ![Login](./public/screenshots/login.png) | ![Tasks](./public/screenshots/tasks.png) |
 
 > As imagens acima devem estar na pasta `public/screenshots/` com os nomes correspondentes, como `login.png`, `register.png`, e `tasks.png`.
+
+---
 
 ## Arquitetura
 
@@ -21,30 +21,19 @@ O sistema segue uma **arquitetura de três camadas**:
 ```
 Apresentação (React + Android)
          ↓
-Negócios (Flask API + JWT)
+Negócios (API REST + JWT)
          ↓
 Dados (DynamoDB)
 ```
 
 - **Frontend Web:** React + Vite + Tailwind  
-- **Aplicativo Android:** PWA
-- **Backend:** AWS Lambda com Flask + JWT + DynamoDB  
+- **Aplicativo Android:** PWA  
+- **Backend:** API REST hospedada em AWS Lambda com autenticação JWT  
 - **Infraestrutura (Deploy):** AWS (Lambda, API Gateway, DynamoDB, Route 53, S3 para frontend)
 
 ---
 
 ## Como Executar
-
-### Backend - Flask API
-```bash
-cd task-manager-api
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# venv\Scripts\activate    # Windows
-pip install -r requirements.txt
-python src/main.py
-```
-> A API estará disponível em: `http://localhost:5000`
 
 ### Frontend - React
 ```bash
@@ -66,9 +55,31 @@ npm run dev
 ```
 task-manager-projeto-completo/
 ├── task-manager-frontend/    # Frontend React
-├── screenshots/              # Imagens das telas (para o README)
-├── project_plan.md           # Documento detalhado do projeto
-└── README.md                 # Este arquivo
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   │   └── ui/
+│   │   │       ├── Footer.jsx
+│   │   │       ├── Header.jsx
+│   │   │       ├── LoginForm.jsx
+│   │   │       ├── RegisterForm.jsx
+│   │   │       ├── TaskForm.jsx
+│   │   │       └── TaskList.jsx
+│   │   ├── contexts/
+│   │   │   └── AuthContext.jsx
+│   │   ├── hooks/
+│   │   │   └── use-mobile.js
+│   │   ├── lib/
+│   │   │   └── utils.js
+│   │   ├── services/
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+├── screenshots/
+├── project_plan.md
+└── README.md
 ```
 
 ---
@@ -90,7 +101,9 @@ task-manager-projeto-completo/
 - Filtro por status (pendente, em andamento, concluída)  
 - Responsivo e acessível via navegador ou celular  
 
-### Endpoints da API (RESTful)
+---
+
+## Endpoints da API (RESTful)
 
 ```http
 POST   /api/auth/register   # Criar conta
@@ -109,7 +122,7 @@ DELETE /api/tasks/{id}      # Deletar
 ## Configuração de DNS
 
 - SEUNOME.DNS → Frontend (React)  
-- api.SEUNOME → API (Flask via API Gateway)
+- api.SEUNOME → API (Lambda via API Gateway)
 
 **Exemplo:**
 ```
@@ -127,8 +140,8 @@ api.SEUNOME        A    192.168.1.100
 - Axios
 
 ### Backend
-- Python 3.11 + Flask
-- Flask-JWT-Extended + Flask-CORS
+- API REST com autenticação JWT
+- Hospedada em AWS Lambda + API Gateway
 - DynamoDB
 
 ### Mobile
@@ -168,4 +181,3 @@ Projeto final para a disciplina **Sistemas Distribuídos**
 
 Este projeto está licenciado sob a Licença MIT.  
 Veja o arquivo [LICENSE](https://github.com/franciscalorraynes/task-manager/blob/main/LICENSE.md) para mais detalhes.
-
