@@ -163,5 +163,5 @@ Projeto final para a disciplina **Sistemas Distribuídos**
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT.  
-Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+Veja o arquivo [LICENSE](https://github.com/franciscalorraynes/task-manager/blob/main/LICENSE.md) para mais detalhes.
 
