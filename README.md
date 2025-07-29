@@ -159,3 +159,9 @@ Veja o arquivo [`project_plan.md`](./project_plan.md) para:
 **Francisca Lorrayne**  
 Discente de Bacharelado em Tecnologia da Informação – UFERSA  
 Projeto final para a disciplina **Sistemas Distribuídos**
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT.  
+Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
