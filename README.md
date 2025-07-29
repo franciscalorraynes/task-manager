@@ -6,9 +6,9 @@ Sistema completo de gerenciamento de tarefas, desenvolvido por **Lorrayne** como
 
 ## Telas do Sistema
 
-| Tela de Login | Tela de Registro | Tela de Tarefas |
+| Tela de Login | Tela de Entrada | Tela de Tarefas |
 |---------------|------------------|------------------|
-| ![Login](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/login.png?v=1) | ![Register](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/register.png?v=1) | ![Tasks](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/tasks.png?v=1) |
+| ![Login](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/login.png?v=1) | ![Tasks](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/register.png?v=1) | ![Register](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/tasks.png?v=1) |
 
 
 
