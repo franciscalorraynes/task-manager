@@ -1,6 +1,6 @@
 # Task Manager – Projeto Final de Sistemas Distribuídos
 
-Sistema completo de gerenciamento de tarefas, desenvolvido por **Lorrayne** como projeto final da disciplina **Sistemas Distribuídos**. O sistema implementa arquitetura de **três camadas** com comunicação via **APIs REST**, autenticação via **JWT**, acesso **multiplataforma (Web e Android)**, e deploy com **DNS personalizado** usando AWS.
+Sistema completo de gerenciamento de tarefas, desenvolvido como projeto final da disciplina **Sistemas Distribuídos**. O sistema implementa arquitetura de **três camadas** com comunicação via **APIs REST**, autenticação via **JWT**, acesso **multiplataforma (Web e Android)**, e deploy com **DNS personalizado** usando AWS.
 
 ---
 
