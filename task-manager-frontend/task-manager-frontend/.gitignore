@@ -1,0 +1,39 @@
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+*.zip
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDEs e configurações de editores
+.vscode/
+.idea/
+*.iml
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos temporários e caches
+.cache/
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+
+# Outros arquivos e pastas desnecessárias
+coverage/
+test-output/
