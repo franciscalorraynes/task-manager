@@ -154,6 +154,10 @@ Veja o arquivo [`project_plan.md`](./project_plan.md) para:
 
 ---
 
+## Agradecimentos
+
+Agradeço ao professor Walber José Adriano Silva pela orientação e suporte durante o desenvolvimento deste projeto para a disciplina Sistemas Distribuídos.
+
 ## Desenvolvido Por
 
 **Francisca Lorrayne**  
