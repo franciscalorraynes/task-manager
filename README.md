@@ -8,7 +8,7 @@ Sistema completo de gerenciamento de tarefas, desenvolvido como projeto final da
 
 | Tela de Login | Tela de Tarefas |
 |---------------|-----------------|
-| ![Login](./public/screenshots/login.png) | ![Tasks](./public/screenshots/tasks.png) |
+| ![Login](https://raw.githubusercontent.com/franciscalorraynes/task-manager/main/task-manager-frontend/public/screenshots/login.png) | ![Tasks](https://raw.githubusercontent.com/franciscalorraynes/task-manager/main/task-manager-frontend/public/screenshots/tasks.png) |
 
 > As imagens acima devem estar na pasta `public/screenshots/` com os nomes correspondentes, como `login.png`, `register.png`, e `tasks.png`.
 
