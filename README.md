@@ -6,9 +6,10 @@ Sistema completo de gerenciamento de tarefas, desenvolvido por **Lorrayne** como
 
 ## Telas do Sistema
 
-| Tela de Login | Tela de Registro | Tela de Tarefas |
+| Tela de Login | | Tela de Tarefas |
 |---------------|------------------|------------------|
-| ![Login](task-manager-frontend/public/screenshots/login.png) | ![Register](task-manager-frontend/public/screenshots/register.png) | ![Tasks](task-manager-frontend/public/screenshots/tasks.png) |
+| ![Login](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/login.png?v=1) |  | ![Tasks](https://github.com/franciscalorraynes/task-manager/raw/main/task-manager-frontend/public/screenshots/tasks.png?v=1) |
+
 
 
 > As imagens acima devem estar na pasta `public/screenshots/` com os nomes correspondentes, como `login.png`, `register.png`, e `tasks.png`.
@@ -158,3 +159,9 @@ Veja o arquivo [`project_plan.md`](./project_plan.md) para:
 **Francisca Lorrayne**  
 Discente de Bacharelado em Tecnologia da Informação – UFERSA  
 Projeto final para a disciplina **Sistemas Distribuídos**
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT.  
+Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
